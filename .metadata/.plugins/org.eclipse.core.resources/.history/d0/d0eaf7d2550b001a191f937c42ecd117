@@ -1,0 +1,10 @@
+package school;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class TeacherService {
+	public void createStudent(Student student) {
+		studentRepository.save(student);
+	}
+}

@@ -1,0 +1,11 @@
+package school;
+
+import lombok.Data;
+
+@Data
+public class Grade {
+	
+	private Integer gr;
+	private String section;
+	
+}

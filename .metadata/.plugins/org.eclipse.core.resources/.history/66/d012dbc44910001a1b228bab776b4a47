@@ -1,0 +1,17 @@
+package school.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@SessionAttributes("name")
+public class WebController {
+	
+	@RequestMapping("/")
+	public String home() {
+
+	return "index";
+
+	}
+
+}

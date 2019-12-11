@@ -1,0 +1,45 @@
+package school.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import school.data.Student;
+import school.service.StudentWebService;
+
+@Controller
+public class StudentWebController {
+	
+	@Autowired
+	private StudentWebService studentWebService;
+	
+	private Student student=new Student();
+	
+	@RequestMapping(value="/createStudent", method = RequestMethod.POST)
+    public String createStudent(ModelMap model, @RequestParam("sName") String sName, @RequestParam("sLName") String sLName, @RequestParam("rollno") String rollno, @RequestParam("grade") String grade, @RequestParam("section") String section, @RequestParam("emailId") String emailId){
+		
+		student.setSName(sName);
+		student.setSLName(sLName);
+		student.setRollno(Integer.parseInt(rollno));
+		student.setGrade(Integer.parseInt(grade));
+		student.setSection(section);
+		student.setEmailId(emailId);
+		if (student.isEmailValid(student.getEmailId()))
+		{
+			studentWebService.createStudent(student);
+			model.put("errorMessage", "Student Created");
+			 return "welcome";
+		}
+		else
+		{
+	         model.put("errorMessage", "Invalid Email Id");
+	         return "createStudent";
+	    }
+       
+    }
+
+
+}

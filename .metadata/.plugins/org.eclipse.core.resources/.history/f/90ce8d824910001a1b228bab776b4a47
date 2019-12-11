@@ -1,0 +1,9 @@
+package school.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+@SessionAttributes("name")
+public class WebController {
+
+}

@@ -1,0 +1,24 @@
+package com.school.message;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class MessageService {
+	
+    @Autowired
+    public JavaMailSender emailSender;
+	
+	public void sendSingleEmailMessage(Message message) {
+		SimpleMailMessage mailMessage = new SimpleMailMessage(); 
+        message.setTo(to); 
+        message.setSubject(subject); 
+        message.setText(text);
+        emailSender.send(message);
+		
+	}
+	
+	public void sendMultipleMessage(Message message) {
+		//gradeRepository.save(grade);
+	}
+
+}

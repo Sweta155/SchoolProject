@@ -1,0 +1,23 @@
+package school.controller;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+@Controller
+@SessionAttributes("name")
+public class WelcomeController {
+
+    @Autowired
+    TodoService service;
+
+    @RequestMapping(value="/list-todos", method = RequestMethod.GET)
+    public String showTodos(ModelMap model){
+        String name = (String) model.get("name");
+        model.put("todos", service.retrieveTodos(name));
+        return "list-todos";
+    }
+}

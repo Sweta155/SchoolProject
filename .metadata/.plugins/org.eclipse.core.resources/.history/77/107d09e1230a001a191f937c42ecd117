@@ -1,0 +1,28 @@
+package school;
+
+public class Grade {
+	
+	private Integer gr;
+	private String section;
+	
+	public Grade(Integer gr, String section) {
+		//super();
+		this.gr = gr;
+		this.section = section;
+	}
+	public Integer getGr() {
+		return gr;
+	}
+	public String getSection() {
+		return section;
+	}
+	public void setGr(Integer gr) {
+		this.gr = gr;
+	}
+	public void setSection(String section) {
+		this.section = section;
+	}
+	
+	
+
+}

@@ -1,0 +1,8 @@
+package school;
+
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+@RepositoryRestResource(collectionResourceRel = "grade", path = "grade")
+public class GradeRepository {
+
+}

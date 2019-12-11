@@ -1,0 +1,21 @@
+package school.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import school.data.Grade;
+import school.repository.GradeRepository;
+
+@Component
+public class GradeService {
+	@Autowired
+	private GradeRepository gradeRepository;
+	    
+	public void createGrade(Grade grade) {
+		gradeRepository.save(grade);
+	}
+	
+	public Grade getGradeByClassTeacherId(Integer teachId) {
+		return gradeRepository.getGradeByClassTeacherId(teachId);
+	}
+}

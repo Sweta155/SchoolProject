@@ -1,0 +1,13 @@
+package school.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.client.RestTemplate;
+
+public class StudentWebService {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	static final String URL_CREATE_STUDENT = "http://localhost:8080/student";
+	
+
+}

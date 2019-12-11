@@ -1,0 +1,31 @@
+package school.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import school.data.Student;
+import school.service.GradeService;
+import school.service.StudentService;
+import school.service.TeacherService;
+
+@RestController
+public class SetUp {
+	@Autowired
+	private StudentService studentService;
+	@Autowired
+	private TeacherService teacherService;
+	@Autowired
+    private GradeService gradeService;
+	
+	@RequestMapping("/setUpData")
+	public void getAllStudent() {
+		Student student=null;
+		student.setRollno(1);
+		student
+		studentService.createStudent(student);
+	}
+
+}

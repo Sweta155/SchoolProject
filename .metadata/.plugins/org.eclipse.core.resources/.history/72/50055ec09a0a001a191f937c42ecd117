@@ -1,0 +1,23 @@
+package school;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class StudentService {
+	@Autowired
+	private StudentRepository studentRepository;
+	    
+	public Student getStudentByRollNo(String rn) {
+		return studentRepository.findByRollNo(Integer.valueOf(rn));
+	}
+
+	public Student getStudentByGradeNSec(String gr, String sec) {
+		
+		return studentRepository.findBy(Integer.valueOf(gr),sec);
+	}
+	
+	public void createStudent(Student student) {
+		studentRepository.save(student);
+	}
+
+}

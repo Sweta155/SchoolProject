@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Create Student</title>
+<html xmlns:th="http://www.thymeleaf.org">
+</head>
+<body>
+ <font color="red">${errorMessage}</font>
+   <h1> Enter Student Details</h1><BR/>
+    <form action="#" th.object="${student}" method="post">
+    <ul>
+        <li><p><b>First Name : </b><input type="text" th.field="*{sName}" /></p></li>
+        <li><p><b>Last Name  : </b><input type="text" th.field="*{sLName}" /></p></li>
+        <li><p><b>Roll No.   : </b><input type="text" th.field="*{rollno}" /></p></li>
+        <li><p><b>Grade      : </b><input type="text" th.field="*{grade}" /></p></li>
+        <li><p><b>Section    : </b><input type="text" th.field="*{section}" /></p></li>
+        <li><p><b>Email Id   : </b><input type="text" th.field="*{emailId}" /></p></li>
+        <b><input type="submit"/></b>
+     </ul>   
+    </form>
+
+</body>
+</html>

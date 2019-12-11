@@ -1,0 +1,15 @@
+package school.data;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+public class Message {
+	private String messageTo;
+	private String messageFrom;
+	private String messageSubject;
+	private String messageBody;
+
+}
+

@@ -1,0 +1,25 @@
+package school;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class TeacherService {
+	@Autowired
+	private TeacherRepository teacherRepository;
+	@Autowired
+	private GradeRepository gradeRepository;
+	    
+	public void createTeacherDetails(Teacher teacher) {
+		teacherRepository.save(teacher);
+	}
+	
+	public List<Student> getStudentsByTeacherName(String teacherName) {
+		
+		Integer teachId=teacherRepository.getIDByTeacherName(teacherName);
+		gradeRepository.
+		return studentRepository.findByRegId(Integer.valueOf(regId));
+	}
+}

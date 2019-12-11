@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Create Student</title>
+</head>
+
+<body>
+ <font color="red">${errorMessage}</font>
+   <h1> Enter Student Details</h1><BR/>
+    <form:form method="POST" modelAttribute="student">
+    <ul>
+        <li><p><b>First Name : </b><form:input path="sName"/></p></li>
+        <li><p><b>Last Name  : </b><form:input path="sLName" /></p></li>
+        <li><p><b>Roll No.   : </b><form:input path="rollno" /></p></li>
+        <li><p><b>Grade      : </b><form:input path="grade" /></p></li>
+        <li><p><b>Section    : </b><form:input path="section" /></p></li>
+        <li><p><b>Email Id   : </b><form:input path="emailId" /></p></li>
+        <b><input type="submit"/></b>
+     </ul>   
+    </form>
+
+</body>
+</html>

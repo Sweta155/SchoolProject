@@ -1,0 +1,5 @@
+spring.mvc.view.prefix=/WEB-INF/jsp/
+spring.mvc.view.suffix=.jsp
+logging.level.org.springframework.boot.autoconfigure.logging=WARN
+logging.level.org.springframework.context.event=WARN
+logging.level.com=TRACE

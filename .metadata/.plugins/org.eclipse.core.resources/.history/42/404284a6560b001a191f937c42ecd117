@@ -1,0 +1,8 @@
+package school;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+@RepositoryRestResource(collectionResourceRel = "teacher", path = "teacher")
+public interface TeacherRepository extends PagingAndSortingRepository<Student, Long>{
+
+}

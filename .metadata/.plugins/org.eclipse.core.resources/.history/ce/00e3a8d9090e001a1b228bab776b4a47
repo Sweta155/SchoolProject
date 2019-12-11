@@ -1,0 +1,44 @@
+package school.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import school.data.Grade;
+import school.data.Student;
+import school.data.Teacher;
+import school.repository.TeacherRepository;
+
+@Component
+public class TeacherService {
+
+	@Autowired
+	private RestTemplate restTemplate;
+	static final String URL_CREATE_EMAIL_MESSAGE = "http://localhost:8083/message1";
+	
+	@Autowired
+	private TeacherRepository teacherRepository;
+
+	@Autowired
+	private GradeService gradeService;
+
+	@Autowired
+	private StudentService studentService;
+
+	public void createTeacherDetails(Teacher teacher) {
+		teacherRepository.save(teacher);
+	}
+
+	public List<Student> getStudentsByTeacherName(String teacherName) {
+		restTemplate.getForObject("http://www.google.com", String.class);
+		Integer teachId = teacherRepository.getIDByTeacherName(teacherName);
+		Grade grade = gradeService.getGradeByClassTeacherId(teachId);
+		return studentService.getStudentByGradeNSec(Integer.toString(grade.getGr()), grade.getSection());
+	}
+	public void sendMessageToStudentsByTeacherName(String teacherName) {
+	
+	restTemplate.postForObject(URL_CREATE_EMPLOYEE, requestBody, Message.class);
+	}
+}

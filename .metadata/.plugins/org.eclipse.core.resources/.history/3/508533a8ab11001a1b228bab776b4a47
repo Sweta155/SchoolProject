@@ -1,0 +1,16 @@
+package school;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import school.service.StudentService;
+
+@Controller
+@SessionAttributes("name")
+public class createStudentController {
+
+	@Autowired
+	private StudentService studentService;
+
+}

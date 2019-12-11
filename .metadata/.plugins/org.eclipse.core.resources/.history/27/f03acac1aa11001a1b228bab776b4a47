@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Create Student</title>
+</head>
+<body>
+ <font color="red">${errorMessage}</font>
+  Enter Student Details<BR/>
+    <form method="post">
+        First Name : <input type="text" name="sName" /><BR/>
+        Last Name  : <input type="text" name="sLName" /><BR/> 
+        Roll No.   : <input type="text" name="rollno" /><BR/>
+        Grade      : <input type="text" name="grade" /><BR/> 
+        Section    : <input type="text" name="section" /><BR/>
+        Email Id   : <input type="text" name="emailId" /><BR/>
+        <input type="submit" />
+    </form>
+
+</body>
+</html>

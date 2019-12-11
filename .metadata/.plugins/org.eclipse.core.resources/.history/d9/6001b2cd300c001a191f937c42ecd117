@@ -1,0 +1,16 @@
+package com.school.message;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class MessageService {
+	
+	public void createGrade(Message message) {
+		//gradeRepository.save(grade);
+	}
+	
+	public void createGrade(Message message) {
+		//gradeRepository.save(grade);
+	}
+
+}

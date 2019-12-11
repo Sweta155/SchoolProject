@@ -1,0 +1,19 @@
+package school;
+
+import javax.persistence.Entity;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity 
+@Data
+@NoArgsConstructor
+public class Grade {
+	
+	private Integer gr;
+	private String section;
+	private String teacherId;
+	private String subject;
+	private Boolean isClassTeacher; 
+	
+}

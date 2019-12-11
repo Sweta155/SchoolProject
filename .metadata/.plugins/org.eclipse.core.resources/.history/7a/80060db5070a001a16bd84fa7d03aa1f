@@ -1,0 +1,48 @@
+package school;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Teacher {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer empId;
+	private String tName;
+	private String tLName;
+	private List<Grade> grade;
+	
+	public Teacher() {	}
+	
+	public Integer getEmpId() {
+		return empId;
+	}
+	public String gettName() {
+		return tName;
+	}
+	public String gettLName() {
+		return tLName;
+	}
+	public List<Grade> getGrade() {
+		return grade;
+	}
+	public void setEmpId(Integer empId) {
+		this.empId = empId;
+	}
+	public void settName(String tName) {
+		this.tName = tName;
+	}
+	public void settLName(String tLName) {
+		this.tLName = tLName;
+	}
+	public void setGrade(List<Grade> grade) {
+		this.grade = grade;
+	}
+	
+	
+	
+
+}

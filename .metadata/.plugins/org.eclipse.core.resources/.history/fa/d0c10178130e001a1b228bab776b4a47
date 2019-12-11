@@ -1,0 +1,64 @@
+package school.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import school.data.Grade;
+import school.data.Message;
+import school.data.Student;
+import school.data.Teacher;
+import school.repository.TeacherRepository;
+
+@Component
+public class TeacherService {
+
+	@Autowired
+	private RestTemplate restTemplate;
+	static final String URL_SEND_EMAIL_MESSAGE = "http://localhost:8083/message1";
+	
+	@Autowired
+	private TeacherRepository teacherRepository;
+
+	@Autowired
+	private GradeService gradeService;
+
+	@Autowired
+	private StudentService studentService;
+
+	public void createTeacherDetails(Teacher teacher) {
+		teacherRepository.save(teacher);
+	}
+
+	public List<Student> getStudentsByTeacherName(String teacherName) {
+		//restTemplate.getForObject("http://www.google.com", String.class);
+		Integer teachId = teacherRepository.getIDByTeacherName(teacherName);
+		Grade grade = gradeService.getGradeByClassTeacherId(teachId);
+		return studentService.getStudentByGradeNSec(Integer.toString(grade.getGr()), grade.getSection());
+	}
+	
+	public void sendMessageToStudentsByTeacherName(String teacherName, Message newMessage) {
+		StringBuffer messageTo=new StringBuffer("");
+		
+		List<Student> students=getStudentsByTeacherName(teacherName);
+		messageTo.append(students.get(0).getEmailId());
+		for (int i=1;i<=students.size();++i)
+		{
+			messageTo.append(new StringBuffer(";"));
+			messageTo.append(students.get(i).getEmailId());
+		}
+		newMessage.setMessageTo(messageTo.toString());
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		// Data attached to the request.
+		HttpEntity<Message> requestBody = new HttpEntity<>(newMessage, headers);
+	 
+		restTemplate.postForObject(URL_SEND_EMAIL_MESSAGE, requestBody, Message.class);
+	}
+}

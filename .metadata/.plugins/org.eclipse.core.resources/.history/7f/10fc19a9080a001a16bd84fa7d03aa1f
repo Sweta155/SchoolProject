@@ -1,0 +1,70 @@
+package school;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity 
+
+public class Student {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer rollNo;
+	private String sName;
+	private String sLName;
+	private Integer grade;
+	private String section;
+	
+	public Student(Integer rollNo, String sName, String sLName, Integer grade, String section) {
+		//super();
+		this.rollNo = rollNo;
+		this.sName = sName;
+		this.sLName = sLName;
+		this.grade = grade;
+		this.section = section;
+	}
+
+	public Integer getRollNo() {
+		return rollNo;
+	}
+
+	public String getsName() {
+		return sName;
+	}
+
+	public String getsLName() {
+		return sLName;
+	}
+
+	public Integer getGrade() {
+		return grade;
+	}
+
+	public String getSection() {
+		return section;
+	}
+
+	/*why setters notr required now?
+	 * public void setRollNo(Integer rollNo) {
+	 
+		this.rollNo = rollNo;
+	}
+
+	public void setsName(String sName) {
+		this.sName = sName;
+	}
+
+	public void setsLName(String sLName) {
+		this.sLName = sLName;
+	}
+
+	public void setGrade(Integer grade) {
+		this.grade = grade;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}   */
+		
+
+}
